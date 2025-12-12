@@ -1,5 +1,6 @@
 mod cli;
 mod commands;
+mod utils;
 
 use clap::Parser;
 use std::error::Error;
@@ -9,10 +10,11 @@ use commands::Runnable;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let cli = Cli::parse();
+    let path = utils::paths::Paths::new();
 
     match cli.command {
-        Some(Command::Shell(cmd)) => cmd.run(),
-        Some(Command::Toggle(cmd)) => cmd.run(),
+        Some(Command::Shell(cmd)) => cmd.run(&path),
+        Some(Command::Toggle(cmd)) => cmd.run(&path),
         Some(Command::Completions { shell }) => {
             cli::generate_completions(shell);
             Ok(())

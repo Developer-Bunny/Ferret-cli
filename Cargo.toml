@@ -6,3 +6,17 @@ edition = "2024"
 [dependencies]
 clap = { version = "4", features = ["derive"] }
 clap_complete = { version = "4" }
+
+anyhow = { version = "1" }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1" }
+sha2 = { version = "*" }
+hex = { version = "*" }
+directories = { version = "6" }
+tempfile = { version = "3" }
+
+which = { version = "8" }
+shell-words = { version = "*" }
+
+material-colors = "0.4"
+image = "0.24"

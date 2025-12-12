@@ -6,6 +6,6 @@ pub mod toggle;
 pub use shell::ShellCmd;
 pub use toggle::ToggleCmd;
 
-pub trait Runnable {
-    fn run(self) -> Result<(), Box<dyn Error>>;
+pub trait Runnable<Ctx> {
+    fn run(&self, context: Ctx) -> Result<(), Box<dyn Error>>;
 }
